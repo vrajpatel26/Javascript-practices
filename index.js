@@ -1,5 +1,2 @@
-console.log(`hdhdhfjfjf
-    sjsjsjsj
-    sjdjjdkdd`);
-
+console.log("heloo !!")
 
