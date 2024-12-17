@@ -68,6 +68,13 @@ console.log(person);
 //[ 'vraj', 'maurya', 'radhe', 'hardik' ]
 */
 
-person.splice(0,0)
+/*
+person.splice(person.length,0,"jatan") // go to last element & nothing dekete & add jatan
 console.log(person);
+// [ 'vraj', 'viraj', 'radhe', 'hardik', 'jatan' ]
+*/
+
+person.splice(1,0,"kuldip") // go to 1st index & nothing delete & add kuldip 
+console.log(person);
+//[ 'vraj', 'kuldip', 'viraj', 'radhe', 'hardik' ]
 
