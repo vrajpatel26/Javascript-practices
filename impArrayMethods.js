@@ -1,4 +1,4 @@
-const friends = ["vraj","viraj","radhe","hardik","parv"]
+const friends = ["vraj", "viraj", "radhe", "hardik", "parv"]
 
 // --------indexOf - give the index number of element ---------
 
@@ -37,8 +37,8 @@ console.log(friends.includes("henil")); //false
 
 
 // ----------Questions : ----------------
- 
-const months = ["jan","feb","march","april","may"]
+
+const months = ["jan", "feb", "march", "april", "may"]
 
 /*
 //1. add december at the end of array
@@ -139,6 +139,7 @@ console.log(updateCart);
 //[1, 2, 3, 4, 5, 7, 8, 9]
 */
 
+/*
 //3. filter product with a price  less than or equal to 500.
 
 const products = [
@@ -154,6 +155,62 @@ const filterProducts = products.filter((currElement)=>{
 })
 
 console.log(filterProducts);
+*/
+
+
+
+
+//--------------Sort()- used for sorting array-----------------------
+/*
+const numbers= [1,2,4,3,6,5,6,7,4,8,9]
+
+console.log(numbers.sort());
+//[ 1, 2, 3, 4, 4, 5, 6, 6, 7, 8, 9 ]
+*/
+
+
+/*
+//----------------For ascending orderr-------------------
+
+const numbers= [1,2,4,3,6,5,6,7,4,8,9]
+
+numbers.sort((a,b)=>{
+    if(a>b) return 1
+    if(b>a) return -1
+})
+
+console.log(numbers);
+//[ 1, 2, 3, 4, 4, 5, 6, 6, 7, 8, 9 ]
+*/
+
+
+/*
+// -----------------for descending order----------------
+const numbers = [1, 2, 4, 3, 6, 5, 6, 7, 4, 8, 9]
+
+numbers.sort((a, b) => {
+    if (a > b) return -1
+    if (b > a) return 1
+})
+
+console.log(numbers);
+// [ 9, 8, 7, 6, 6,5, 4, 4, 3, 2, 1 ]
+*/
+
+
+
+
+//-__-__-__-__-__-__-__-__- Reduce() -__-__-__-__-__-__-__-__
+
+const productPrice = [500,1000,200,600,700,100]
+
+const totalPrice = productPrice.reduce((accumalator , currElement)=>{
+
+    return accumalator + currElement
+},0)
+
+console.log(totalPrice); //3100
+
 
 
 
