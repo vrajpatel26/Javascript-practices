@@ -161,6 +161,7 @@ console.log(result4); //true
 
 //----------------endsWith()----------------
 
+/*
 let text = "vraj patel , my nick name is vraj"
 
 let result = text.endsWith("vra")
@@ -171,14 +172,38 @@ console.log(result2);//true
 
 let result3 = text.endsWith("Vraj")
 console.log(result3);//false
+*/
+
+// ------------------End of Search methods -------------
 
 
- 
+//-------------slice()- return the extracted part of string
+
+/*
+let text = "vraj patel"
+
+let result = text.slice(0,4) // starting with idx 0 & ends with idx 3( idx 4 is excluded)
+console.log(result);//vraj
+
+let result2 = text.slice(5)
+console.log(result2);//patel
+*/
 
 
+//---------substring()- same as slice() method . difference is that lessthan 0 value treated as 0 value.
+
+let text = "vraj patel"
+
+let result = text.substring(5)
+console.log(result); //patel
+
+//differnce between slice and substring method.
+
+let result2 = text.substring(-5)
+console.log(result2); //vraj patel
 
 
-
-
+let result3 = text.slice(-5)
+console.log(result3); //patel  (starting -1 from last index & goinf left side)
 
 
