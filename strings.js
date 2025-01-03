@@ -192,6 +192,7 @@ console.log(result2);//patel
 
 //---------substring()- same as slice() method . difference is that lessthan 0 value treated as 0 value.
 
+/*
 let text = "vraj patel"
 
 let result = text.substring(5)
@@ -205,5 +206,81 @@ console.log(result2); //vraj patel
 
 let result3 = text.slice(-5)
 console.log(result3); //patel  (starting -1 from last index & goinf left side)
+*/
+
+// -------------------- charAt() ---------------------
+//charAt doesn't ssupport (-).
+
+/*
+let text = "vraj patel"
+
+let result = text.charAt(3);
+console.log(result);//j
+
+let result2 = text.charAt(-3);
+console.log(result2); //no output
+*/
+
+
+//-----------------At----------------
+// it support (-)
+/*
+let text = "vraj patel"
+
+let result = text.at(-3);
+console.log(result); //t
+*/
+
+
+//--------------replcae----------
+
+/*
+let text = "vraj patel"
+ 
+let result = text.replace("patel","bhai")
+console.log(result); //vraj bhai
+
+
+let text2 = "hello vraj , how are you vraj !"
+
+let result2 = text2.replace("vraj","maurya");
+console.log(result2); //hello maurya , how are you vraj !
+
+let result3 = text2.replace(/vraj/g,"maurya");
+console.log(result3);//hello maurya , how are you maurya !
+*/
+
+
+
+//---------------trim - removes whitespace from both ends of string
+
+/*
+let text = "  hello , vraj   ";
+
+console.log(text.length); //17
+
+let result = text.trim();
+console.log(result);//hello , vraj
+console.log(result.length);//12
+*/
+
+
+
+//-------------split()-convert into array
+
+
+let text = "apple , orange , graps";
+
+let result = text.split(",");
+console.log(result); //[ 'apple ', ' orange ', ' graps' ]
+
+let result2 = text.split(",").reverse();
+console.log(result2); //[ ' graps', ' orange ', 'apple ' ]
+
+let result3 = text.split();
+console.log(result3);//[ 'apple , orange , graps' ]
+
+let result4 = text.split(",").reverse().join(); //join used for covert into string
+console.log(result4);// graps, orange ,apple
 
 
