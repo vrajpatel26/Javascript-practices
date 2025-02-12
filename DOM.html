@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="doc">Documents</h1>
+    <h2 class="classDoc">paper</h2>
+    <h2>pen</h2>
+    <p>online exam center</p>
+    <p>Ahmedabad</p>
+
+    <ul class="lists">
+        <li> page 1</li>
+        <li> page 2</li>
+        <li> page 3</li>
+        <!-- <li> page 1</li> -->
+        <li style="display: none;"> page 4</li>
+
+
+    </ul>
+
+    <script>
+       /* let parent = document ; // get whole code 
+        console.log(parent);
+        console.log(parent.head); //head page code
+        let bodyElement = document.body
+        console.log(bodyElement);
+        
+
+        let bodyChild = bodyElement.childNodes
+        console.log(bodyChild); // child nodes including text
+
+        let bodyChild1 = bodyElement.children
+        console.log(bodyChild1); // child nodes  
+
+        let firstChild = bodyElement.firstChild
+        console.log(firstChild); // get #text
+
+        let firstChild1 = bodyElement.firstElementChild
+        console.log(firstChild1); //get h1
+
+        let lastChild = bodyElement.lastChild
+        console.log(lastChild); // get script
+        
+        let lastChild1 = bodyElement.lastElementChild
+        console.log(lastChild1); // get script
+        */
+        
+        let findDoc = document.getElementById("doc")
+        console.log(findDoc.innerHTML);
+
+        let findDoc1 = document.getElementsByClassName("classDoc")
+        console.log(...findDoc1);
+
+        let findLists = document.getElementsByClassName("lists")
+        console.log(findLists.innerHTML); //error
+
+        // so , 
+        // you can show difference
+        for(let ele of findLists){
+            console.log(ele.innerHTML);
+            console.log(ele.innerText);
+            console.log(ele.textContent);
+        }
+        
+        
+    </script>
+</body>
+</html>
