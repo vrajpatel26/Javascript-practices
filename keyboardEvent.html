@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mainbox {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            width: 100vw;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+        }
+
+        .output {
+            background-color: rgb(255, 255, 173);
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mainbox">
+        <div class="innerbox">
+            <input type="text" id="myInput" placeholder="type anything...">
+            <div class="output">
+                <p class="keypressed">Key Presssed : </p>
+                <p class="keycode">Key code : </p>
+                <p class="charcode">Char code : </p>
+                <p class="eventType">Event type: </p>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let myinput = document.querySelector("#myInput")
+
+    const keyboardEventHandler = (event) => {
+
+        document.querySelector(".keypressed").textContent = `Key Presssed : ${event.key}`
+        document.querySelector(".keycode").textContent = `keycode : ${event.code}`
+        document.querySelector(".charcode").textContent = `charcode : ${event.key.charCodeAt(0)}`
+        document.querySelector(".eventType").textContent = `eventType : ${event.type}`
+
+    }
+
+    myinput.addEventListener("keydown", keyboardEventHandler)
+    // myinput.addEventListener("keyup", keyboardEventHandler)
+
+</script>
+
+</html>
