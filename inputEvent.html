@@ -1,21 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    .mainbox {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: 100vw;
+        justify-content: center;
+        align-items: center;
+        background: #000;
+    }
+
+    .output {
+        background-color: rgb(255, 255, 173);
+        border: none;
+    }
+</style>
+
 <body>
     <div class="mainbox">
         <div class="innerbox">
-            <input type="text" id="myInput" placeholder="type anything..." >
+            <input type="text" 
+                   id="myInput"
+                   name="username"
+                   placeholder="type anything..."
+                   autocomplete="off"
+                    />
             <div class="output">
-                <p class="keypressed">Key Presssed : </p>
-                <p class="keycode">Key code : </p>
-                <p class="charcode">Char code : </p>
+                <p class="inputValue">input Value : </p>
+                <p class="inputName">input Name : </p>
+                <p class="inputType">input Type : </p>
                 <p class="eventType">Event type: </p>
             </div>
         </div>
     </div>
 </body>
+<script>
+    let myInput = document.querySelector("#myInput")
+
+    const inputEventHandler = (event) =>{
+        console.log(event.target.value);
+        console.log(event.target.name);
+        console.log(event.inputType);
+        console.log(event.type);
+
+        document.querySelector(".inputValue").textContent = `input Value : ${event.target.value}`
+        document.querySelector(".inputName").textContent = `keycode : ${event.target.name}`
+        document.querySelector(".inputType").textContent = `charcode : ${event.inputType}`
+        document.querySelector(".eventType").textContent = `eventType : ${event.type}`
+    }
+
+    myInput.addEventListener("input",inputEventHandler)
+    myInput.addEventListener("change",inputEventHandler) // when you enter then show the data
+</script>
+
 </html>
