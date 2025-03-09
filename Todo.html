@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: black;
+        }
+
+        .inner-main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+            width: 100vw;
+        }
+
+        .heading {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        #inputValue {
+            height: 30px;
+            width: 200px;
+        }
+
+        .btn {
+            height: 30px;
+            width: 80px;
+        }
+
+        .todo_div {
+            display: grid;
+            grid-template-columns: 1fr 0.3fr;
+            align-items: center;
+            color: white;
+            height: auto;
+            margin-top: 30px;
+            font-size: 20px;
+        }
+
+        .deleteBtn {
+            height: 30px;
+            width: 60px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="inner-main">
+        <h1 class="heading">Todo List</h1>
+        <br />
+        <form>
+            <div class="form-div">
+                <input type="text" id="inputValue" placeholder="type anything...">
+                <button class="btn">Add Todo</button>
+            </div>
+            <div class="todo-list-data"></div>
+        </form>
+    </div>
+
+</body>
+<script>
+    const inputValue = document.querySelector("#inputValue")
+    const todoElement = document.querySelector(".todo-list-data")
+
+
+    const getTodoListFromLocal = () => {
+        return JSON.parse(localStorage.getItem("Todo-data"))
+    };
+
+    let localTodoList = getTodoListFromLocal() || []
+
+    const addTodoDataInBox = (currEle) => {
+        const divElement = document.createElement("div");
+        divElement.classList.add("todo_div");
+        divElement.innerHTML = `<li>${currEle}</li> <button class="deleteBtn">Delete</button>`
+        todoElement.append(divElement)
+    }
+
+    const addTodoList = (e) => {
+        e.preventDefault();
+        const todoListValue = inputValue.value.trim();
+
+        inputValue.value = ""
+
+
+        if (todoListValue!== "" && !localTodoList.includes(todoListValue)) {
+
+            localTodoList.push(todoListValue)
+            localTodoList = [...new Set(localTodoList)]
+            console.log(localTodoList);
+            localStorage.setItem("Todo-data", JSON.stringify(localTodoList))
+
+
+            const divElement = document.createElement("div");
+            divElement.classList.add("todo_div");
+            divElement.innerHTML = `<li>${inputValue.value}</li> <button class="deleteBtn">Delete</button>`
+            todoElement.append(divElement)
+
+        }
+    }
+
+    const showTodoList = () => {
+        console.log(localTodoList);
+
+        localTodoList.forEach((currEle) => {
+            addTodoDataInBox(currEle);
+        })
+    }
+
+    showTodoList();
+
+
+    document.querySelector(".btn").addEventListener("click", (e) => {
+        addTodoList(e)
+    })
+</script>
+
+</html>
