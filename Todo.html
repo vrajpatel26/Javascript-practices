@@ -39,6 +39,8 @@
         .btn {
             height: 30px;
             width: 80px;
+            background-color: yellow;
+            border: none;
         }
 
         .todo_div {
@@ -53,8 +55,23 @@
 
         .deleteBtn {
             height: 30px;
-            width: 60px;
+            width: 80px;
             font-size: 0.8rem;
+            background-color: yellow;
+            border: none;
+            border-radius: 30px
+        }
+
+        .deleteBtn:hover {
+            background-color: black;
+            border: 1px solid yellow;
+            color: yellow;
+        }
+
+        .btn:hover {
+            background-color: black;
+            border: 1px solid yellow;
+            color: yellow;
         }
     </style>
 </head>
@@ -80,8 +97,12 @@
 
 
     const getTodoListFromLocal = () => {
-        return JSON.parse(localStorage.getItem("Todo-data"))
+        return JSON.parse(localStorage.getItem("New-todoData"))
     };
+
+    const addTodoListLocalStorage = (localTodoList) => {
+        return localStorage.setItem("New-todoData", JSON.stringify(localTodoList))
+    }
 
     let localTodoList = getTodoListFromLocal() || []
 
@@ -99,12 +120,12 @@
         inputValue.value = ""
 
 
-        if (todoListValue!== "" && !localTodoList.includes(todoListValue)) {
+        if (todoListValue !== "" && !localTodoList.includes(todoListValue)) {
 
             localTodoList.push(todoListValue)
             localTodoList = [...new Set(localTodoList)]
             console.log(localTodoList);
-            localStorage.setItem("Todo-data", JSON.stringify(localTodoList))
+            localStorage.setItem("New-todoData", JSON.stringify(localTodoList))
 
 
             const divElement = document.createElement("div");
@@ -125,6 +146,36 @@
 
     showTodoList();
 
+    const removeTodo = (e) => {
+        // console.log(e.target);
+        const removeData = e.target
+        let todoListContent = removeData.previousElementSibling.innerText;
+        let parentElem = removeData.parentElement;
+        console.log(todoListContent);
+
+        localTodoList = localTodoList.filter((currEle) => {
+            return currEle !== todoListContent
+        });
+
+        addTodoListLocalStorage(localTodoList);
+
+        parentElem.remove();
+        console.log(localTodoList);
+    }
+
+
+
+    todoElement.addEventListener("click", (e) => {
+        e.preventDefault();
+        // removeTodo(e)
+
+        console.log(e.target);
+
+        if (e.target.classList.contains("deleteBtn")) {
+            removeTodo(e);
+        }
+
+    })
 
     document.querySelector(".btn").addEventListener("click", (e) => {
         addTodoList(e)
