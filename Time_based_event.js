@@ -31,4 +31,15 @@ const stop = setInterval(delayedFunction2,2000)
 clearTimeout(stop)
 
 
-//
+//------clearInterval - if you want to cancel scheduled timeout after perticular occurs,then it is use------------
+
+const repeatedFunc = () =>{
+    console.log("This is repeatd every after 1 second");
+    
+}
+repeatedFunc()
+const intervalId = setInterval(repeatedFunc,1000)
+
+setTimeout(()=>{
+    clearInterval(intervalId)
+},5000)
