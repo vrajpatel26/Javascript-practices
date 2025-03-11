@@ -88,7 +88,37 @@ const parseDate = Date.parse(dateString)
 console.log(parseDate) //1741675260090
 */
 
-console.log(Date.now())
+//console.log(Date.now()) //1741675611586
 
 
+
+//-----------------------Interview Questions------------------
+
+//1.Write a function to add 7 days to a given date
+
+const addDaysToDate = (date,extraDay) =>{
+    let updateDate = date.setDate(date.getDate()+extraDay)
+    return new Date(updateDate)
+}
+
+//for an exp:
+const date = new Date("2025-03-11")
+const newDate = addDaysToDate(date,7)
+console.log(newDate);
+
+
+//2.Write a function to calcute the difference in days btwn twp given dates
+
+const getDayDiff = (d1,d2) =>{
+
+    let oneDay = 24*60*60*1000;
+    let diff = d2 - d1 ;
+    return Math.round(diff / oneDay);
+}
+//7
+
+//for exp :
+const date1 = new Date("2025-03-11")
+const date2 = new Date("2025-03-18")
+console.log(getDayDiff(date1,date2));
 
