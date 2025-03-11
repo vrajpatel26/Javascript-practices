@@ -117,9 +117,6 @@
         e.preventDefault();
         const todoListValue = inputValue.value.trim();
 
-        inputValue.value = ""
-
-
         if (todoListValue !== "" && !localTodoList.includes(todoListValue)) {
 
             localTodoList.push(todoListValue)
@@ -134,6 +131,7 @@
             todoElement.append(divElement)
 
         }
+        inputValue.value = ""
     }
 
     const showTodoList = () => {
