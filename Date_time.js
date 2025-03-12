@@ -70,12 +70,12 @@ console.log(date);//2025-06-15T06:12:46.454Z
 //1.toLocaleString()
 const date = new Date()
 const LocaleString = date.toLocaleString()
-console.log(LocaleString); //3/11/2025, 12:07:09 PM
+console.log(LocaleString); //  3/11/2025, 12:07:09 PM
 
 //2.toLocalDateString()
 const date1 = new Date()
 const LocaleDateString = date1.toLocaleDateString()
-console.log(LocaleDateString); //3/11/2025
+console.log(LocaleDateString); //  3/11/2025
 
 //3.toLocalTimeString()
 const date2 = new Date()

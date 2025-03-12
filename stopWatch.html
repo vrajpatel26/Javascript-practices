@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .main-container {
+            background-color: antiquewhite;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            height: 300px;
+            width: 250px;
+            border: 2px solid black;
+            background-color: aqua;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            
+        }
+        .buttons{
+            display: grid;
+            grid-template-columns: 0.3fr 0.3fr;
+            /* flex-direction: column; */
+            gap: 10px;
+            align-self: center;
+            /* padding-top: 30px; */
+        }
+        .str_btn{
+            height: 40px;
+            width: 80px;
+        }
+        .rst_btn{
+            height: 40px;
+            width: 80px;
+        }
+        .stp_btn{
+            height: 40px;
+            width: 80px;
+        }
+        .get_btn{
+            height: 40px;
+            width: 80px;
+        }
+        .clear_btn{
+            height: 40px;
+            width: 80px;
+        }
+        #countDown{
+            font-size: 3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="container">
+            <p id="countDown">0</p>
+            <div class="buttons">
+                <button class="str_btn">Start</button>
+                <button class="rst_btn">Reset</button>
+                <button class="stp_btn">Stop</button>
+                <button class="get_btn">GetTime</button>
+                <button class="clear_btn">ClearTime</button>
+            </div>
+            <div class="resetValue"></div>
+        </div>
+    </div>
+</body>
+
+</html>
