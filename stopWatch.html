@@ -13,7 +13,7 @@
         }
 
         .main-container {
-            background-color: antiquewhite;
+            background-color: rgb(2, 2, 33);
             height: 100vh;
             width: 100vw;
             display: flex;
@@ -23,45 +23,80 @@
         }
 
         .container {
-            height: 300px;
+            height: 350px;
             width: 250px;
-            border: 2px solid black;
-            background-color: aqua;
+            border: 2px solid yellow;
+            background-color: rgb(18, 0, 70);
             text-align: center;
             display: flex;
             flex-direction: column;
-            
+
         }
-        .buttons{
+
+        .buttons {
             display: grid;
             grid-template-columns: 0.3fr 0.3fr;
-            /* flex-direction: column; */
             gap: 10px;
             align-self: center;
-            /* padding-top: 30px; */
         }
-        .str_btn{
+
+        .str_btn {
             height: 40px;
             width: 80px;
+            border: 2px solid yellow;
+            color: white;
+            background-color: black;
         }
-        .rst_btn{
+
+        .rst_btn {
             height: 40px;
             width: 80px;
+            border: 2px solid yellow;
+            color: white;
+            background-color: black;
         }
-        .stp_btn{
+
+        .stp_btn {
             height: 40px;
             width: 80px;
+            border: 2px solid yellow;
+            color: white;
+            background-color: black;
         }
-        .get_btn{
+
+        .get_btn {
             height: 40px;
             width: 80px;
+            border: 2px solid yellow;
+            color: white;
+            background-color: black;
         }
-        .clear_btn{
+
+        .clear_btn {
             height: 40px;
             width: 80px;
+            border: 2px solid yellow;
+            color: white;
+            background-color: black;
         }
-        #countDown{
+
+        #countDown {
             font-size: 3rem;
+            margin-bottom: 2rem;
+            margin-top: 1rem;
+            color: yellow;
+        }
+
+        .str_btn:hover,
+        .rst_btn:hover,
+        .stp_btn:hover,
+        .get_btn:hover,
+        .clear_btn:hover {
+            background-color: rgb(18, 0, 70);
+        }
+        .resetValue{
+            color: yellow;
+            padding-top: 1rem;
         }
     </style>
 </head>
@@ -81,5 +116,50 @@
         </div>
     </div>
 </body>
+<script>
+    const countDown = document.querySelector("#countDown")
+    const resetValue = document.querySelector(".resetValue")
+
+    let startCount = 0
+    let intervalId;
+
+    const startTimer = () => {
+        intervalId = setInterval(() => {
+            countDown.innerText = startCount++;
+        }, 1000)
+    }
+
+    const stopTimer = () => {
+        getTimer()
+        clearInterval(intervalId);
+    }
+
+    const resetTimer = () => {
+        startCount = 0
+        countDown.innerText = startCount
+        clearInterval(intervalId)
+    }
+
+    const getTimer = () => {
+        const newPara = document.createElement("p")
+        newPara.innerText = `The stop value is ${startCount - 1}`
+        resetValue.append(newPara)
+    }
+
+    const clearTimer = () => {
+        resetValue.innerHTML = ""
+    }
+
+    document.querySelector(".str_btn").addEventListener("click", startTimer)
+    document.querySelector(".stp_btn").addEventListener("click", stopTimer)
+    document.querySelector(".rst_btn").addEventListener("click", resetTimer)
+    document.querySelector(".get_btn").addEventListener("click", getTimer)
+    document.querySelector(".clear_btn").addEventListener("click", clearTimer)
+
+
+
+
+
+</script>
 
 </html>
