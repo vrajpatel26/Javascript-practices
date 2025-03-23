@@ -36,3 +36,19 @@ newObj1.name = "Parv"
 console.log(newObj1); //{ name: 'Parv', surname: 'patel' }
 console.log("original :",newObj); //original : { name: 'hardik', surname: 'patel' }
 
+
+// ---------------------------------------------
+
+//independent objects are not queal
+//two objects are only euqal when it refer to same object
+
+const obj4 = { name:"vraj"}
+const obj5 = { name:"vraj"}
+
+const obj6 = obj5 
+
+const checkEqual = obj4 === obj5 ? true : false;
+console.log(checkEqual); //false
+
+const checkEqual1 = obj5 === obj6 ? true : false;
+console.log(checkEqual1); //true
