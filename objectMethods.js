@@ -71,3 +71,15 @@ console.log(mergedBox1); //{ a: 1, b: 2, c: 3, d: 4 }
 Object.freeze(dept)
 dept.id="2345"
 console.log(dept); //id is not changed bcz we are used freeze.
+
+
+
+
+//--------------------------------Interview Questions-------------------------
+
+const firstObj = {a:1 , b:2}
+const secondObj = {b:3 , c:4}
+
+const mergedObj = Object.assign({},firstObj,secondObj)
+
+console.log(mergedObj); //{ a: 1, b: 3, c: 4 }
