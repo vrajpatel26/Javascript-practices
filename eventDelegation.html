@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+     
+        .main{
+            height: 100vh;
+            width: 100vw;
+            background-color: rgb(15, 3, 38);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .para{
+            font-size: 2rem;
+            color: yellow;
+        }
+        li{
+            font-size: 1.5rem;
+            color: yellow;
+            /* text-decoration: none; */
+            border: 2px solid black;
+            padding: 0.7rem;
+            text-align: center;
+            background-color: black;
+     
+        }
+        #listValue{
+            font-size: 1.5rem;
+            color: green;
+            font-weight: 700;
+            margin-top: 2rem;
+        }
+        #myList{
+           list-style-type: none ;
+           display: flex;
+           flex-direction: column;
+           gap: 1rem;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <p class="para">Which programming language do yo like : </p>
+        <br />
+        <ul id="myList">
+            <li>Javascript</li>
+            <li>React</li>
+            <li>Node JS</li>
+            <li>Mongodb</li>
+
+        </ul>
+        <p id="listValue"></p>
+    </div>
+</body>
+
+<script>
+    getDetails = (event) => {
+        console.log(event.target);
+        document.getElementById("listValue").innerHTML = `Your Favourite programming language is : ${event.target.innerText}`
+
+    }
+
+    document.getElementById("myList").addEventListener("click", getDetails)
+</script>
+
+</html>
