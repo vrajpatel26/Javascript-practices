@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h1 {
+        text-align: center;
+        margin-bottom: 3.2rem;
+      }
+      .mainbody {
+        gap: 1.4rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .element {
+        width: 5rem;
+        height: 5rem;
+        margin: 5px;
+        border: 1px solid red;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        font-size: 1.2rem;
+      }
+</style>
+
+<body>
+    <h1>Periodic Table</h1>
+    <section class="mainbody"></section>
+    <script>
+
+        const createPeriodicElement = (symbol, atomicNum, name) => {
+            const element = document.createElement("div")
+            element.classList.add("element")
+            element.innerHTML = symbol
+
+            element.setAttribute("data-atomic-number", atomicNum)
+            element.setAttribute("data-element-name", name)
+
+
+            return element;
+        }
+
+
+        const handleElement = (event) => {
+            const target = event.target
+
+            if (target.classList.contains("element")) {
+                const atomicNum = target.getAttribute("data-atomic-number")
+                const elementName = target.getAttribute("data-element-name")
+                alert(`Atomic number : ${atomicNum}\nElement name : ${elementName}`)
+            }
+        }
+
+        function intializePeriodicTable() {
+            const mainbody = document.querySelector(".mainbody")
+
+            for (let i = 1; i <= 50; i++) {
+                const element = createPeriodicElement(`Elem${i}`, i, `Element ${i}`)
+                mainbody.append(element)
+            }
+
+            mainbody.addEventListener("click", handleElement)
+        }
+
+        intializePeriodicTable()
+    </script>
+</body>
+
+</html>
