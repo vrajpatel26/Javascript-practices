@@ -19,6 +19,11 @@ console.log(error);
     
 })*/
 
+
+//-------------------------------------------------------------------------
+
+
+/*
 studentName = "Vraj"
 
 const enrollStudent = (studentName) => {
@@ -51,3 +56,35 @@ enrollStudent(studentName)
         console.log("Enrollment process is done !");
 
     })
+*/
+
+
+//-----------------------Promises method--------------------
+
+const Promise1 = new Promise((resolve,reject) =>{
+    setTimeout(()=>{resolve("first")},3000)
+})
+
+
+const Promise2 = new Promise((resolve,reject) =>{
+    setTimeout(()=>{resolve("second")},3000)
+})
+
+
+const Promise3 = new Promise( (resolve,reject) =>{
+    setTimeout(()=>{resolve("third")},3000)
+})
+
+//------promise.all - required all promise is resolve
+
+Promise.all([Promise1,Promise2,Promise3])
+.then((values)=>{
+    console.log(values);
+})
+.catch((error)=>{
+    console.log(error);
+    
+})
+
+//-------promise.allsettled - can run if some is reject
+
