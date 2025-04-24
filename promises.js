@@ -61,23 +61,23 @@ enrollStudent(studentName)
 
 //-----------------------Promises method--------------------
 
-const Promise1 = new Promise((resolve,reject) =>{
+const Promise11 = new Promise((resolve,reject) =>{
     setTimeout(()=>{resolve("first")},3000)
 })
 
 
-const Promise2 = new Promise((resolve,reject) =>{
+const Promise12 = new Promise((resolve,reject) =>{
     setTimeout(()=>{resolve("second")},3000)
 })
 
 
-const Promise3 = new Promise( (resolve,reject) =>{
+const Promise13 = new Promise( (resolve,reject) =>{
     setTimeout(()=>{resolve("third")},3000)
 })
 
 //------promise.all - required all promise is resolve
 
-Promise.all([Promise1,Promise2,Promise3])
+Promise.all([Promise11,Promise12,Promise13])
 .then((values)=>{
     console.log(values);
 })
@@ -88,3 +88,53 @@ Promise.all([Promise1,Promise2,Promise3])
 
 //-------promise.allsettled - can run if some is reject
 
+const Promise21 = new Promise((resolve,reject) =>{
+    setTimeout(()=>{resolve("first")},3000)
+})
+
+
+const Promise22 = new Promise((resolve,reject) =>{
+    setTimeout(()=>{reject("second")},3000)
+})
+
+
+const Promise23 = new Promise( (resolve,reject) =>{
+    setTimeout(()=>{resolve("third")},3000)
+})
+
+
+Promise.allSettled([Promise21,Promise22,Promise23])
+.then((values)=>{
+    console.log(values);
+})
+.catch((error)=>{
+    console.log(error);
+})
+
+
+//----------promise.race - whose time is low & first occured  that is output , doesnt matter resolve/reject
+
+
+const Promise31 = new Promise((resolve,reject) =>{
+    setTimeout(()=>{resolve("first")},3000)
+})
+
+
+const Promise32 = new Promise((resolve,reject) =>{
+    setTimeout(()=>{reject("second")},2000)
+})
+
+
+const Promise33 = new Promise( (resolve,reject) =>{
+    setTimeout(()=>{resolve("third")},3000)
+})
+
+
+
+Promise.race([Promise31,Promise32,Promise33])
+.then((values)=>{
+    console.log(values);
+})
+.catch((error)=>{
+    console.log(error);
+})
