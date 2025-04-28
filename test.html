@@ -6,11 +6,24 @@
     <title>Document</title>
 </head>
 <body>
-    <img src="mypic.jpg" alt="error">
-    <script>
-        // let page = document;
-        // console.log(page);
-        
-    </script>
+<script>
+
+const getWeatherData = async() =>{
+    const weatherApi = `https://api.openweathermap.org/data/2.5/weather?q=pune&APPID=31a1e5be255cbcc07d660fe92556bae9`;
+try {
+    const res = await fetch(weatherApi)
+    const data = await res.json()
+    console.log(data);
+
+    // const{main,name,weather,wind,sys,dt} = data
+    
+    // cityName.innerHTML = name
+} catch (error) {
+    console.log(error);
+    
+}
+}
+document.body.addEventListener("load",getWeatherData)
+</script>
 </body>
 </html>
